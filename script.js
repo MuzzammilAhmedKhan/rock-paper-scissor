@@ -12,7 +12,6 @@ function getComputerChoice() {
     return choice[Math.floor(Math.random() * choice.length)];
 }
 
-getComputerChoice();
 
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
@@ -21,7 +20,9 @@ function playRound(playerSelection, computerSelection) {
     let scissors = "Scissors beat paper"
     let win = "You win!";
     let lose = "You lose!";
-    if (playerSelection === "rock" && computerSelection === "paper") {
+    if (computerSelection === playerSelection) {
+        return "It's a draw!";
+    }else if (playerSelection === "rock" && computerSelection === "paper") {
         return `${lose} ${paper}.`;
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
         return `${lose} ${scissors}.`;
@@ -31,7 +32,7 @@ function playRound(playerSelection, computerSelection) {
         return `${win} ${paper}`;
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
         return `${win} ${scissors}`;
-    } else if (playerChoice === "rock" && computerChoice === "paper") {
+    } else if (playerSelection === "rock" && computerSelection === "paper") {
         return `${win} ${rock}`;
     }
 }
