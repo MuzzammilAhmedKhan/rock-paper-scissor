@@ -1,6 +1,15 @@
 function getComputerChoice() {
-    let w = "working!"
-    console.log(`it's ${w}`);
+    const choice = ['rock', 'paper', 'scissor'];
+    // console.log("choice.length");
+    // console.log(choice.length);
+    // let random = Math.random();
+    // console.log("random");
+    // console.log(random);
+    // console.log("random * choice.length");
+    // console.log(random * choice.length);
+    // console.log("Math.floor(Math.random() * choice.length)");
+    // console.log(Math.floor(Math.random() * choice.length));
+    return choice[Math.floor(Math.random() * choice.length)];
 }
 
 getComputerChoice();
