@@ -36,3 +36,7 @@ function playRound(playerSelection, computerSelection) {
         return `${win} ${rock}`;
     }
 }
+
+const playerSelection = "paper";
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
