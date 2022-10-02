@@ -34,6 +34,8 @@ function playRound(playerSelection, computerSelection) {
         return `${win} ${scissors}`;
     } else if (playerSelection === "rock" && computerSelection === "paper") {
         return `${win} ${rock}`;
+    } else {
+        return "Error! Selection not in choice.";
     }
 }
 
