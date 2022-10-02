@@ -37,6 +37,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = "paper";
+
+const playerSelection = prompt("Let's play a game. Rock, paper or scissors?","paper");
 const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
