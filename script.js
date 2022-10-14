@@ -1,84 +1,46 @@
 function getComputerChoice() {
   const choice = ["rock", "paper", "scissors"];
-  // console.log("choice.length");
-  // console.log(choice.length);
-  // let random = Math.random();
-  // console.log("random");
-  // console.log(random);
-  // console.log("random * choice.length");
-  // console.log(random * choice.length);
-  // console.log("Math.floor(Math.random() * choice.length)");
-  // console.log(Math.floor(Math.random() * choice.length));
   return choice[Math.floor(Math.random() * choice.length)];
 }
 
 function playRound(playerSelection, computerChoice) {
   let computerSelection = computerChoice();
   playerSelection = playerSelection.toLowerCase();
-  let paper = "Paper beats rock";
-  let rock = "Rock beats scissors";
-  let scissors = "Scissors beat paper";
-  let win = "You win!";
-  let lose = "You lose!";
   if (computerSelection === playerSelection) {
-    return "It's a draw!";
+    return 0;
   } else if (playerSelection === "rock" && computerSelection === "paper") {
-    return `${lose} ${paper}.`;
+    return -1;
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
-    return `${lose} ${scissors}.`;
+    return -1;
   } else if (playerSelection === "scissors" && computerSelection === "rock") {
-    return `${lose} ${rock}.`;
+    return -1;
   } else if (playerSelection === "paper" && computerSelection === "rock") {
-    return `${win} ${paper}`;
+    return 1;
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
-    return `${win} ${scissors}`;
-  } else if (playerSelection === "rock" && computerSelection === "paper") {
-    return `${win} ${rock}`;
+    return 1;
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
-    return `${win} ${rock}`;
+    return 1;
   } else {
-    return `Error! Selection not in choice. ${playerSelection} and ${computerSelection}`;
+    return 0;
   }
 }
 
-const buttonsDiv = document.createElement("div");
-buttonsDiv.classList.add("buttons");
+var playerScore = document.querySelector(".player-score").innerHTML;
+const computerScore = document.querySelector(".computer-score").innerHTML;
 
-const rock = document.createElement("button");
-rock.classList.add("rock");
-rock.textContent = "Rock";
+const rock = document.querySelector(".rock");
+const paper = document.querySelector(".paper");
+const scissor = document.querySelector(".scissor");
 
-buttonsDiv.appendChild(rock);
+let score 
 
-const paper = document.createElement("button");
-paper.classList.add("paper");
-paper.textContent = "Paper";
+for (let i = 0; i < 5; i++) {
+  rock.addEventListener("click", () => {
+    score = setTimeout(playRound("rock", getComputerChoice), 5000);
+    // console.log(score)
+  });
+}
 
-buttonsDiv.appendChild(paper);
+console.log(score);
 
-const scissors = document.createElement("button");
-scissors.classList.add("scissors");
-scissors.textContent = "Scissors";
-
-buttonsDiv.appendChild(scissors);
-
-document.body.appendChild(buttonsDiv);
-
-const result = document.createElement("div");
-result.classList.add("result");
-
-paper.addEventListener("click", () => {
-  result.textContent = playRound("Paper", getComputerChoice);
-  document.body.appendChild(result);
-});
-
-rock.addEventListener("click", () => {
-  result.textContent = playRound("rock", getComputerChoice);
-  document.body.appendChild(result);
-});
-
-scissors.addEventListener("click", () => {
-  result.textContent = playRound("scissors", getComputerChoice);
-  document.body.appendChild(result);
-});
 
