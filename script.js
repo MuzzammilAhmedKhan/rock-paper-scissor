@@ -41,6 +41,6 @@ for (let i = 0; i < 5; i++) {
   });
 }
 
-console.log(score);
+console.log(score); // <--- always returns undefined
 
 
